@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <h2 style="display: flex; justify-content: center;">Livros!</h2>
+    <!-- Apply Bootstrap class es to the table -->
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark"> <!-- Optional: adds a dark header -->
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in values %}
+            <tr>
+                <td>{{ row[0] }}</td> <!-- Assuming row[0] is ID -->
+                <td>{{ row[1] }}</td> <!-- Assuming row[1] is Description -->
+                <td>{{ row[2] }}</td> <!-- Assuming row[2] is Quantity -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="container mt-5" style="display: flex; justify-content: center; align-items: center; border: 3px; width: 200px; height: 200px; top: 30px;">
+        <form method="post">
+            <div class="form-group">
+                <label for="idInput">ID:</label>
+                <input type="text" class="form-control-sm" id="idInput" name="id">
+            </div>
+            <div class="form-group">
+                <label for="quantityInput">Quantidade:</label>
+                <input type="number" class="form-control-sm" id="quantityInput" name="quantity">
+            </div>
+            <button type="submit" class="btn btn-primary">Fazer pedido</button>
+        </form>
+    </div>
+    
+    <!-- Optional JavaScript and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
